@@ -9,16 +9,16 @@
   "pathPrefix": "/",
   "menu": [
     {
-      "label": "Articles",
+      "label": "Blog",
       "path": "/"
     },
     {
-      "label": "About me",
-      "path": "/pages/about"
+      "label": "About",
+      "path": "/about"
     },
     {
-      "label": "Contact me",
-      "path": "/pages/contacts"
+      "label": "Tags",
+      "path": "/tags"
     }
   ],
   "author": {
