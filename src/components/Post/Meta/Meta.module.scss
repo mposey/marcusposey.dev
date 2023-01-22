@@ -2,7 +2,15 @@
 @import "../../../assets/scss/mixins";
 
 .meta {
+  max-width: $layout-post-width;
+  @include margin-auto();
+  @include margin-top(0.3);
+
   .date {
-    font-style: italic;
+    color: #000;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: .875rem;
+    @include margin(0, 0);
   }
 }

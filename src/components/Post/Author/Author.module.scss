@@ -2,29 +2,68 @@
 @import "../../../assets/scss/mixins";
 
 .author {
-  border-top: 1px solid var(--color-page-border);
-  max-width: $layout-post-width;
-  @include padding-top(1);
-  @include line-height(1);
-  @include margin-top(1);
-  @include margin-bottom(2);
+  @include padding-equal(0.25);
+  @include margin(0.5, 0, 0.5, 0);
 
-  .bio {
-    .twitter {
-      display: block;
-      text-decoration: underline;
+  .header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-grow: 1;
 
-      &:hover,
-      &:focus {
-        color: var(--color-typographic-link-s-font);
+    .photo {
+      flex-shrink: 0;
+
+      .small {
+        height: 40px;
+        width: 40px;
+      }
+
+      .medium {
+        height: 48px;
+        width: 48px;
+      }
+
+      .large {
+        height: 60px;
+        width: 60px;
+      }
+
+      img {
+        border-radius: 50%;
       }
     }
+
+    .right {
+      margin: 0 0 0 10px;
+
+      .name {
+        @include margin(0, 0);
+
+        .link {
+          color: var(--color-typographic-base-font);
+
+          &:hover {
+            border-bottom: 1px solid var(--color-typographic-base-font);
+          }
+        }
+      }
+
+      .bio {
+        @include margin(0, 0);
+      }
+    }
+  }
+
+  .bio {
+    @include margin-top(0.25);
+    @include margin-bottom(0);
   }
 }
 
 @include breakpoint-sm {
   .author {
-    margin-left: auto;
-    margin-right: auto;
+    @include padding-equal(0.5);
+    @include margin(0.75, 0.5, 0.75, 0.5);
   }
 }

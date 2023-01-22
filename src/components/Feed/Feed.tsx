@@ -14,6 +14,14 @@ const Feed: React.FC<Props> = ({ edges }: Props) => (
   <div className={styles.feed}>
     {edges.map((edge) => (
       <div className={styles.item} key={edge.node.fields.slug}>
+        <h2 className={styles.title}>
+          <Link
+            className={styles.link}
+            to={edge.node.frontmatter?.slug || edge.node.fields.slug}
+          >
+            {edge.node.frontmatter.title}
+          </Link>
+        </h2>
         <div className={styles.meta}>
           <time
             className={styles.time}
@@ -25,6 +33,7 @@ const Feed: React.FC<Props> = ({ edges }: Props) => (
             {new Date(edge.node.frontmatter.date).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",
+              day: "numeric",
             })}
           </time>
           <span className={styles.divider} />
@@ -34,14 +43,6 @@ const Feed: React.FC<Props> = ({ edges }: Props) => (
             </Link>
           </span>
         </div>
-        <h2 className={styles.title}>
-          <Link
-            className={styles.link}
-            to={edge.node.frontmatter?.slug || edge.node.fields.slug}
-          >
-            {edge.node.frontmatter.title}
-          </Link>
-        </h2>
         <p className={styles.description}>
           {edge.node.frontmatter.description}
         </p>
