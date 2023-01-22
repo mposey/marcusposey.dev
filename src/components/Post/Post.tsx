@@ -7,7 +7,6 @@ import type { Node } from "@/types";
 import { Author } from "./Author";
 import { Comments } from "./Comments";
 import { Content } from "./Content";
-import { Meta } from "./Meta";
 import { Tags } from "./Tags";
 
 import * as styles from "./Post.module.scss";
@@ -19,23 +18,17 @@ interface Props {
 const Post: React.FC<Props> = ({ post }: Props) => {
   const { html } = post;
   const { tagSlugs, slug } = post.fields;
-  const { tags, title, date } = post.frontmatter;
+  const { tags, title, date, description } = post.frontmatter;
 
   return (
     <div className={styles.post}>
-      <div className={styles.buttons}>
-        <Button className={styles.buttonArticles} title="All Articles" to="/" />
-        <ThemeSwitcher />
-      </div>
-
-      <div className={styles.content}>
-        <Content body={html} title={title} />
-      </div>
+      <Content body={html} title={title} subtitle={description} date={date} />
 
       <div className={styles.footer}>
-        <Meta date={date} />
         {tags && tagSlugs && <Tags tags={tags} tagSlugs={tagSlugs} />}
-        <Author />
+        <div className={styles.container}>
+          <Author showBio showTwitter />
+        </div>
       </div>
 
       <div className={styles.comments}>

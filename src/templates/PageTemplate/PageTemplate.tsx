@@ -6,6 +6,7 @@ import { Layout } from "@/components/Layout";
 import { Meta } from "@/components/Meta";
 import { Page } from "@/components/Page";
 import { Sidebar } from "@/components/Sidebar";
+import { MoveableSidebarContent } from "@/components/Sidebar/MoveableSidebarContent";
 import { useSiteMetadata } from "@/hooks";
 import { Node } from "@/types";
 
@@ -21,12 +22,15 @@ const PageTemplate: React.FC<Props> = ({ data }: Props) => {
   const { title } = frontmatter;
 
   return (
-    <Layout>
-      <Sidebar />
-      <Page title={title}>
-        <div dangerouslySetInnerHTML={{ __html: body }} />
-      </Page>
-    </Layout>
+    <div style={{ marginLeft: "calc(100vw - 100%)" }}>
+      <Layout>
+        <Sidebar />
+        <Page title={title}>
+          <div dangerouslySetInnerHTML={{ __html: body }} />
+        </Page>
+      </Layout>
+      <MoveableSidebarContent mobile={true} />
+    </div>
   );
 };
 

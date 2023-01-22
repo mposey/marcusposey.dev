@@ -18,25 +18,26 @@ type Props = {
 
 const Author = ({ author, isIndex }: Props) => (
   <div className={styles.author}>
-    <Link to="/">
-      <Image alt={author.name} path={author.photo} className={styles.photo} />
-    </Link>
-
     <div className={styles.titleContainer}>
-      {isIndex ? (
-        <h1 className={styles.title}>
-          <Link className={styles.link} to="/">
-            {author.name}
-          </Link>
-        </h1>
-      ) : (
-        <h2 className={styles.title}>
-          <Link className={styles.link} to="/">
-            {author.name}
-          </Link>
-        </h2>
-      )}
-      <ThemeSwitcher />
+      <Link to="/">
+        <Image alt={author.name} path={author.photo} className={styles.photo} />
+      </Link>
+      <div className={styles.title}>
+        {isIndex ? (
+          <h1>
+            <Link className={styles.link} to="/">
+              {author.name}
+            </Link>
+          </h1>
+        ) : (
+          <h2>
+            <Link className={styles.link} to="/">
+              {author.name}
+            </Link>
+          </h2>
+        )}
+        <ThemeSwitcher />
+      </div>
     </div>
     <p className={styles.subtitle}>{author.bio}</p>
   </div>

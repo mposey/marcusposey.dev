@@ -8,6 +8,16 @@
     list-style: none;
     @include padding-equal(0);
 
+    .title {
+      display: inline-block;
+      margin: 0 5px 0 0;
+
+      h4 {
+        font-size: $typographic-base-font-size;
+        @include margin(0, 0);
+      }
+    }
+
     .item {
       display: inline-block;
       @include margin(0.25, 0);

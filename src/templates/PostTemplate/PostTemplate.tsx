@@ -5,6 +5,7 @@ import { graphql } from "gatsby";
 import { Layout } from "@/components/Layout";
 import { Meta } from "@/components/Meta";
 import { Post } from "@/components/Post";
+import { Masthead } from "@/components/Post/Masthead";
 import { useSiteMetadata } from "@/hooks";
 import { Node } from "@/types";
 
@@ -15,9 +16,12 @@ interface Props {
 }
 
 const PostTemplate: React.FC<Props> = ({ data: { markdownRemark } }: Props) => (
-  <Layout>
-    <Post post={markdownRemark} />
-  </Layout>
+  <>
+    <Masthead />
+    <Layout>
+      <Post post={markdownRemark} />
+    </Layout>
+  </>
 );
 
 export const query = graphql`

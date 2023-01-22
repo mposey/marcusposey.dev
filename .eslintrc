@@ -12,6 +12,14 @@
     "@alxshelepenok/eslint-config",
     "plugin:prettier/recommended"
   ],
+  "overrides": [
+    {
+        "files": ["*.ts", "*.tsx"],
+        "rules": {
+            "no-undef": "off"
+        }
+    }
+  ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json"

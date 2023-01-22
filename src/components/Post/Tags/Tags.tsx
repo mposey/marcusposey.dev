@@ -12,6 +12,9 @@ type Props = {
 const Tags = ({ tags, tagSlugs }: Props) => (
   <div className={styles.tags}>
     <ul className={styles.list}>
+      <li className={styles.title}>
+        <h4>Tags:</h4>
+      </li>
       {tagSlugs
         ? tagSlugs.map((slug, i) => (
             <li className={styles.item} key={slug}>

@@ -1,4 +1,4 @@
-import React from "react";
+import * as React from "react";
 
 import { RenderBodyArgs } from "gatsby";
 
@@ -7,6 +7,7 @@ import { themeAtomKey } from "@/hooks";
 const onRenderBody = ({
   setHtmlAttributes,
   setPreBodyComponents,
+  setHeadComponents,
 }: RenderBodyArgs) => {
   setPreBodyComponents([
     React.createElement("script", {
@@ -38,6 +39,17 @@ const onRenderBody = ({
   ]);
 
   setHtmlAttributes({ lang: "en" });
+
+  setHeadComponents([
+    React.createElement("link", {
+      rel: "preload",
+      href: "/fonts/Inter-roman.var.woff2",
+      as: "font",
+      type: "font/woff2",
+      crossOrigin: "anonymous",
+      key: "interFont",
+    }),
+  ]);
 };
 
 export { onRenderBody };

@@ -54,7 +54,7 @@ const Image: FC<Props> = ({ path, ...rest }: Props) => (
         node: { childImageSharp },
       } = image;
 
-      return <GatsbyImage {...rest} image={childImageSharp.gatsbyImageData} />;
+      return <GatsbyImage {...rest} image={childImageSharp.gatsbyImageData}/>;
     }}
   />
 );
